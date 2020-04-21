@@ -18,7 +18,7 @@ appointmentsRouter.get('/', async (request, response) => {
 
 appointmentsRouter.post('/', async (request, response) => {
   try {
-    const { provider, date } = request.body;
+    const { provider_id, date } = request.body;
 
     // parseISO - Transformando uma string (date) que esta vindo do body,
     //            para uma data.
@@ -31,7 +31,7 @@ appointmentsRouter.post('/', async (request, response) => {
     // executa
     const appointment = await createAppointment.execute({
       date: parsedDate,
-      provider,
+      provider_id,
     });
 
     // retorna
